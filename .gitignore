@@ -2,3 +2,5 @@
 *.dvi
 *.webloc
 *.class
+*.zip
+dist/

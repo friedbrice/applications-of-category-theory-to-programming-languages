@@ -47,3 +47,7 @@ scala MonadicPartiality
 scala OrdinaryIO
 scala MonadicIO
 ```
+
+## Build All
+
+From the project root directory, run `./build.sh`. Build artifacts will be written to the `dist` directory.

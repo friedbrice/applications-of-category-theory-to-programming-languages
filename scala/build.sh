@@ -6,7 +6,8 @@
 
 set -e
 NAME=$1
-echo "building java classes from scala source"
+HERE=$(basename `pwd`)
+echo "building classes from scala source"
 (
   (
     scalac OrdinaryPartiality.scala
@@ -20,7 +21,5 @@ echo "building java classes from scala source"
     scalac MonadicIO.scala
   )
 )
-mkdir -p ../dist
-zip "${NAME}.zip" *.class
-cp -f "${NAME}.zip" "../dist/${NAME}.zip"
-echo "java classes written to ../dist/${NAME}.zip"
+zip out.zip *.class
+echo "classes written to ${HERE}/out.zip"

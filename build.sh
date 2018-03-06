@@ -9,10 +9,14 @@ mkdir -p dist
 (
   (
     cd latex/ && \
-    ./build.sh "$NAME"
+    ./build.sh "$NAME" && \
+    cp -f presentation.pdf "../dist/${NAME}.pdf" && \
+    echo "pdf copied to dist/${NAME}.pdf"
   ) & (
     cd scala/ && \
-    ./build.sh "$NAME"
+    ./build.sh "$NAME" && \
+    cp -f out.zip "../dist/${NAME}.zip" && \
+    echo "classes copied to dist/${NAME}.zip"
   )
 )
 case $1 in
