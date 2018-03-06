@@ -2,9 +2,9 @@
 
 Presentation and supporting code examples given at the Graduate Mathematics Seminar, Cal State Channel Islands, 2018-03-05.
 
-_Prebuilt project files available [here](https://www.dropbox.com/s/8ibeskqg2sd6ob2/applications-of-category-theory-to-programming-languages.zip?dl=0)._
+_PDF available [here](https://www.dropbox.com/s/d5m7fxs2xkld136/applications-of-category-theory-to-programming-languages.pdf?dl=0)._
 
-_Direct link to prebuild PDF available [here](https://www.dropbox.com/s/gl8ayfpa6yreveb/presentation.pdf?dl=0)._
+_Build artifacts for code examples available [here](https://www.dropbox.com/s/r2e3uxs1rarj2o5/applications-of-category-theory-to-programming-languages.zip?dl=0)._
 
 _Please [email me](mailto:danielbrice@gmail.com) if the below instructions fall out of date._
 
