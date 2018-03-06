@@ -2,6 +2,10 @@
 
 Presentation and supporting code examples given at the Graduate Mathematics Seminar, Cal State Channel Islands, 2018-03-05.
 
+_Prebuilt project files available [here](https://www.dropbox.com/s/8ibeskqg2sd6ob2/applications-of-category-theory-to-programming-languages.zip?dl=0)._
+
+_Direct link to prebuild PDF available [here](https://www.dropbox.com/s/gl8ayfpa6yreveb/presentation.pdf?dl=0)._
+
 _Please [email me](mailto:danielbrice@gmail.com) if the below instructions fall out of date._
 
 **Note to Software Professionals:** This presentation is not a monad tutorial. This is a graduate-level talk targeted at mathematicians and computer scientists about programming language research. If you are a software practitioner and you'd like an introduction to monads, I suggest taking a structured approach that builds up to the concept incrementally. If you're interested in learning Haskell specifically, take a look at [Haskell Book](http://haskellbook.com/); however, learning Haskell is not the key to understanding monads, and understanding monads is not the key to learning Haskell. You'll have much more success learning about monads in your Favorite Language™ (they all have monads, these days) first.
