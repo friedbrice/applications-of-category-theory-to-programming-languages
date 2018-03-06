@@ -1,0 +1,4 @@
+Since it's development in the last half of the 20th century, Category Theory has garnered a reputation for being one of the most esoteric branches of pure Mathematics, being proposed as an alternative foundation to Set Theory by its practitioners and being jokingly referred to as "general abstract nonsense" by the uninitiated.
+Perhaps surprisingly, a seminal 1991 paper by Computer Scientist Eugenio Moggi points out a deep connection between Category Theory and Computation and exploits this connection to develop a Category-theoretic model of Computation.
+Since their introduction, Moggi's ideas have rippled throughout the programming language world, influencing languages as diverse as OCaml and Java and as disparate as C# and JavaScript.
+In this talk, we will give a high-level overview of Moggi's ideas and examine the implications they have had for programming language design and for programming in general.
