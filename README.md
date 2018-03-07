@@ -27,7 +27,7 @@ brew install scala pandoc
 **Ubuntu:**
 
 ```sh
-sudo apt update && sudo apt-get full-upgrade
+sudo apt update && sudo apt full-upgrade
 sudo apt install default-jdk scala texlive-full pandoc
 ```
 
