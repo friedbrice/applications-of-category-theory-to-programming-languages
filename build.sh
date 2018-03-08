@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# assumes you have pandoc and pdflatex installed and on your path
-# assumes you have java and scala installed and on your path
-
 set -e
 NAME='applications-of-category-theory-to-programming-languages'
 echo "building $NAME"
@@ -19,7 +16,7 @@ mkdir -p dist
     ./build.sh "$NAME"
     cp -f out.zip "../dist/${NAME}.zip"
     echo "classes copied to dist/${NAME}.zip"
-  )
+  ) & PROCS_78935790+=( $! )
   for PROC in "${PROCS_78935790[@]}"; do
     wait "$PROC" || exit
   done

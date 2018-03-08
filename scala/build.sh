@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# assumes you have java and scala installed and on your path
-# once compiled, run `Foo.class` by invoking `scala Foo`
-
 set -e
 NAME=$1
 HERE=$(basename `pwd`)
+which scalac || { echo "could not find scalac, exiting"; exit 1; }
 echo "building classes from scala source"
 (
   PROCS_46574465=( )
@@ -19,7 +17,7 @@ echo "building classes from scala source"
   ) & PROCS_46574465+=( $! ) && (
     scalac LibIO.scala
     scalac MonadicIO.scala
-  )
+  ) & PROCS_46574465+=( $! )
   for PROC in "${PROCS_46574465[@]}"; do
     wait "$PROC" || exit
   done
