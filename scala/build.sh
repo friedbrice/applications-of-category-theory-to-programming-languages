@@ -8,17 +8,21 @@ NAME=$1
 HERE=$(basename `pwd`)
 echo "building classes from scala source"
 (
+  PROCS_46574465=( )
   (
     scalac OrdinaryPartiality.scala
-  ) & (
-    scalac LibMaybe.scala && \
+  ) & PROCS_46574465+=( $! ) && (
+    scalac LibMaybe.scala
     scalac MonadicPartiality.scala
-  ) & (
+  ) & PROCS_46574465+=( $! ) && (
     scalac OrdinaryIO.scala
-  ) & (
-    scalac LibIO.scala && \
+  ) & PROCS_46574465+=( $! ) && (
+    scalac LibIO.scala
     scalac MonadicIO.scala
   )
+  for PROC in "${PROCS_46574465[@]}"; do
+    wait "$PROC" || exit
+  done
 )
 zip --quiet out.zip *.class
 echo "classes written to ${HERE}/out.zip"
