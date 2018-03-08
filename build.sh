@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # assumes you have pandoc and pdflatex installed and on your path
+# assumes you have java and scala installed and on your path
 
 set -e
 NAME='applications-of-category-theory-to-programming-languages'
