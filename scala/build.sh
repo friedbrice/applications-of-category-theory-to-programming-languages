@@ -20,5 +20,5 @@ echo "building classes from scala source"
     scalac MonadicIO.scala
   )
 )
-zip out.zip *.class
+zip --quiet out.zip *.class
 echo "classes written to ${HERE}/out.zip"
