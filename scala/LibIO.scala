@@ -9,7 +9,7 @@ object LibIO {
     def _args: List[String]
   }
 
-  class IO[A] (val run: RealWorld => (RealWorld, A)) {
+  class IO[A](val run: RealWorld => (RealWorld, A)) {
 
     def bind[B](f: A => IO[B]): IO[B] = new IO(rw => {
       val (rw2, a) = this.run(rw)
