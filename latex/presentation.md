@@ -104,7 +104,7 @@ Function<Double, Double> f = (double x) -> Math.pow(x, 2.0);
 $$ \cup =
 \begin{cases}
   \forall T; \mathcal{P}(T) \times \mathcal{P}(T) \to \mathcal{P}(T) \\
-  (A, B) \mapsto \left\{ t \in T \mid\vert t \in A \text{ or } t \in B \right\}
+  (A, B) \mapsto \left\{ t \in T \mid t \in A \text{ or } t \in B \right\}
 \end{cases}
 $$
 
@@ -159,7 +159,7 @@ such that:
 
   1. for all $A \in \mathcal{C}$, $F(id_A) = id_{F(A)}$,
   2. if $f: A \to B$ is a morphism in $\mathcal{C}$, then $F(f): F(A) \to F(B)$, and
-  3. $F$ is compatible composition (e.g. $F(g \circ f) = F(g) \circ F(f)$).
+  3. $F$ is compatible with composition (e.g. $F(g \circ f) = F(g) \circ F(f)$).
 
 **Examples:**
 
@@ -220,7 +220,7 @@ $\mathcal{F}\langle\cdot\rangle$ is left adjoint to $U$, meaning $\mathbf{Grp}(\
   * $\mathrm{unit}: \forall A \in \mathcal{C}; A \to M(A)$, and
   * $\mathrm{bind}: \forall A, B \in \mathcal{C}; \mathcal{C}(A, M(B)) \to \mathcal{C}(M(A), M(B))$,
 
-satisfying technical conditions guaranteeing that $\mathcal{C}$ forms a new category with morphisms $A \to M(B)$, called the _Kleisli category_ of $M$.
+satisfying technical conditions (left unstated) guaranteeing that $\mathcal{C}$ forms a new category with morphisms $A \to M(B)$, called the _Kleisli category_ of $M$.
 
 ## Semantics of Programs - Monads for Program Semantics
 
@@ -228,18 +228,21 @@ satisfying technical conditions guaranteeing that $\mathcal{C}$ forms a new cate
 
   1. Consider a base category of types and programs (e.g. the Polymorphic Typed Lambda Calculus).
   2. Identify formal logics we'd like new programming languages to satisfy (e.g. extensions of the Polymorphic Typed Lambda Calculus)
-  3. Find monads on the base category that can interpret the desired extension logics.
-  4. Prove theorems about our new programming language by considering its interpretation in resulting Kleisli category.
+  3. Find monads on the base category that can interpret the desired extensions.
+  4. Prove theorems about our new programming languages by considering their interpretations in the resulting Kleisli categories.
 
 ## Semantics of Programs - Monads for Program Semantics
 
 Some monads (i.e. language extensions) Moggi considers:
 
-  * _partiality_. $M(A) = 1 \sqcup A$.
-  * _nondeterminism_. $M(A) = \mathcal{P}_\mathrm{finite}(A)$.
-  * _side-effects_. $M(A) = \mathcal{C}(S, A \times S)$ where $S$ is the set of states.
-  * _exceptions_. $M(A) = E \sqcup A$ where $E$ is the set of exceptions.
-  * _continuations_. $M(A) = \mathcal{C}(\mathcal{C}(A, R), R)$ where $R$ is the set of results.
+---                   ---
+**Language Feature**  **Monadic Model**
+_Partiality_          $M(A) = 1 \sqcup A$
+_Nondeterminism_      $M(A) = \mathcal{P}_\mathrm{finite}(A)$ (finite subsets of $A$)
+_Side-effects_        $M(A) = \mathcal{C}(S, A \times S)$ where $S$ is some set of states
+_Exceptions_          $M(A) = E \sqcup A$ where $E$ is some set of errors.
+_Continuations_       $M(A) = \mathcal{C}(\mathcal{C}(A, R), R)$ where $R$ is the set of results
+---                   ---
 
 # Monads in Everyday Programming
 
@@ -263,23 +266,26 @@ $$\texttt{<!-- Inspect scala/LibIO.scala -->}$$
 
 ## Further Examples - Monad Menagerie
 
-**Monad Menagerie:**
-
   * _Non-deterministic computations:_
-  $M(A) = \mathtt{List}(A)$
-  (finite lists with entries in $A$)
+    
+    $M(A) = \mathtt{List}(A)$
+    (finite lists with entries in $A$)
 
   * _Exception handling:_
-  $M(A) = \mathtt{Err} \coprod A$
+
+    $M(A) = \mathtt{Err} \sqcup A$
 
   * _Computations with access to a read-only state variable:_
-  $M(A) = \mathcal{C}(\mathtt{Env}, A)$
+
+    $M(A) = \mathcal{C}(\mathtt{Env}, A)$
 
   * _Computations with access to an append-only state variable:_
-  $M(A) = A \times \mathtt{Log}$
+
+    $M(A) = A \times \mathtt{Log}$
   
   * _Computations with full access to a state variable:_
-  $M(A) = \mathcal{C}(\mathtt{State}, A \times \mathtt{State})$
+
+    $M(A) = \mathcal{C}(\mathtt{State}, A \times \mathtt{State})$
 
   * ...and more
 
