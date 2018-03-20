@@ -24,6 +24,7 @@ object MonadicPartiality {
   }
 
   // f(x, y) = pw(log(x) + inv(y))
+  // no danger that f will throw an exception
   def f(x: BigDecimal, y: BigDecimal): Maybe[BigDecimal] =
     log(x)                              bind { log_x =>
     inv(y)                              bind { inv_y =>
