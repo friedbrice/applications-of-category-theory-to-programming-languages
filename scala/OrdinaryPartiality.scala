@@ -25,6 +25,7 @@ object OrdinaryPartiality {
   }
 
   // f1(x, y) = pw(log(x) + inv(y))
+  // incorrectly throws an exception when either log(x) or inv(y) is null
   def f1(x: BigDecimal, y: BigDecimal): BigDecimal = {
     val log_x = log(x)
     val inv_y = inv(y)
@@ -32,6 +33,7 @@ object OrdinaryPartiality {
   }
 
   // f2(x, y) = pw(log(x) + inv(y))
+  // correctly returns null when either log(x) or inv(y) is null
   def f2(x: BigDecimal, y: BigDecimal): BigDecimal = {
     val log_x = log(x)
     if (log_x == null) null else {
@@ -43,11 +45,13 @@ object OrdinaryPartiality {
   }
 
   def main(args: Array[String]): Unit = {
+    // demonstrate that f1 throws an exception
     try {
       println(f1(0, 0))
     } catch { case err: Exception =>
       println(err)
     }
+    // demonstrate that f2 returns null
     try {
       println(f2(0, 0))
     } catch { case err: Exception =>
