@@ -16,7 +16,6 @@ object MonadicPartiality {
 
   // pw(x) = sqrt(x) if 0.5 < x < 1.5,
   //         sin(x)  if 1.5 < x < 3.0,
-  //         cos(x)  if 3.0 < x < 4.5,
   //         null otherwise
   def pw(x: BigDecimal): Maybe[BigDecimal] = {
     val d = x.toDouble
